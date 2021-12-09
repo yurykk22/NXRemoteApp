@@ -18,10 +18,8 @@
 `NXRemoteApp.vbs [options] <login> <host> <linuxapp>`  
   
 Параметры запуска:  
- |  
---- | ---  
-`-pw <password>` | Пароль входа  
-`-i  <privatekey>` | Файл закрытого ключа  
+`-pw <password>`	Пароль входа  
+`-i  <privatekey>`	Файл закрытого ключа  
 `-kb <kbmode>` | Переключение раскладки  
  | `0` - `Alt+Shift`, `1` - `Ctrl+Shift`  
 `-disp <display>` | Номер X дисплея  
