@@ -18,6 +18,7 @@
 `NXRemoteApp.vbs [options] <login> <host> <linuxapp>`  
   
 Параметры запуска:  
+ |  
 --- | ---  
 `-pw <password>` | Пароль входа  
 `-i  <privatekey>` | Файл закрытого ключа  
