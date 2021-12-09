@@ -20,17 +20,17 @@
 Параметры запуска:  
 |||
 |--|--|
-|`-pw <password>`	| Пароль входа		|
-`-i  <privatekey>`	| Файл закрытого ключа	|
-`-kb <kbmode>` | Переключение раскладки  
- | `0` - `Alt+Shift`, `1` - `Ctrl+Shift`  
-`-disp <display>` | Номер X дисплея  
- | `-1` - Определяет дисплей по SID  
- | `-2` - Новый дисплей под каждый процесс  
-`-xsrvpath <path>` | Путь к приложению VcXsrv  
-`-nxpath <path>` | Путь к приложению nxproxy  
-`-plinkpath <path>` | Путь к приложению plink  
-`-pulsepath <path>` | Путь к приложению PulseAudio  
-`-plink` | Не использовать OpenSSH  
-`-audio` | Включить канал передачи аудио  
-`-d` | Режим отладки  
+|`-pw <password>`	| Пароль входа					|
+|`-i  <privatekey>`	| Файл закрытого ключа				|
+|`-kb <kbmode>`		| Переключение раскладки  
+			  `0` - `Alt+Shift`, `1` - `Ctrl+Shift`		|
+|`-disp <display>`	| Номер X дисплея  
+			  `-1` - Определяет дисплей по SID  
+			  `-2` - Новый дисплей под каждый процесс	|
+|`-xsrvpath <path>`	| Путь к приложению VcXsrv			|
+|`-nxpath <path>`	| Путь к приложению nxproxy			|
+|`-plinkpath <path>`	| Путь к приложению plink			|
+|`-pulsepath <path>`	| Путь к приложению PulseAudio			|
+|`-plink`		| Не использовать OpenSSH			|
+|`-audio`		| Включить канал передачи аудио			|
+|`-d`			| Режим отладки					|
