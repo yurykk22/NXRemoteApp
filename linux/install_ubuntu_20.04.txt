@@ -1,0 +1,2 @@
+# apt install nxagent
+# chmod +x /usr/local/bin/nxstart

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+function checkcon()
+{
+  while read text
+  do
+    >&2 echo "$text"
+    if [[ $(echo "$text" | grep "Session: Session started at") ]]
+    then
+      > $iscon
+      export DISPLAY=:$X
+      export PULSE_SERVER=$(echo $SSH_CONNECTION | awk '{print $1}')
+      if [[ $pcookie ]]
+      then
+        mkdir -p $HOME/.config/pulse
+        echo $pcookie | xxd -r -p > "$HOME/.config/pulse/cookie-$X"
+        export PULSE_COOKIE="$HOME/.config/pulse/cookie-$X"
+      fi
+      eval $commandline
+    fi
+  done
+}
+
+if [[ $# -lt 1 ]] || [[ $# -gt 2 ]]; then echo "Invalid parameters" 1>&2; exit 1; fi
+commandline=$1
+pcookie=$2
+
+for (( X=51001; X <= 51999; X++ ))
+do
+  if ! [[ -f "/tmp/.X${X}-lock" ]]; then break; fi
+done
+if [[ $X -eq 52000 ]]; then echo "All reserved display numbers are in use" 1>&2; exit 1; fi
+port=$(($X + 4000))
+iscon="$HOME/$X"
+if [[ -f $iscon ]]; then rm $iscon; fi
+#link=ADSL,pack=2m-jpeg-7,link=WAN,pack=16m-png-7,pack=adaptive-7,type=application
+export DISPLAY=nx/nx,type=desktop,link=WAN,pack=adaptive,stream=7,data=7,delta=1,listen=$port,port=$port,client=windows,xinerama=0:$X
+nxagent -R :$X 2> >(checkcon >&2) &
+pidagent=$!
+sleep 30s
+if [[ -f $iscon ]]; then rm $iscon; else kill -15 $pidagent; fi
