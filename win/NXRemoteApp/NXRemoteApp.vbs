@@ -147,6 +147,8 @@ End If
 Select Case LCase(linuxapp)
   Case "sbis"
     linuxapp="/opt/sbis3plugin/sbis3plugin %U --autostart & google-chrome https:\\online.sbis.ru --window-size=1600,990 --window-position=160,40 --ignore-gpu-blacklist --use-gl=egl --enable-gpu-rasterization;killall -u " & login & " sbis3plugin"
+  Case "sbis-restart"
+    linuxapp="/opt/sbis3plugin/sbis3plugin %U --autostart & killall -u " & login & " chrome;google-chrome https:\\online.sbis.ru --window-size=1600,990 --window-position=160,40 --ignore-gpu-blacklist --use-gl=egl --enable-gpu-rasterization;killall -u " & login & " sbis3plugin"
   Case "1c"
     linuxapp="/opt/1cv8/common/1cestart"
   Case "chrome"
